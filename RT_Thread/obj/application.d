@@ -1,0 +1,11 @@
+..\obj\application.o: ..\apps\application.c
+..\obj\application.o: ..\apps\board.h
+..\obj\application.o: ..\..\RT-Thread_1.1.1\include\rtthread.h
+..\obj\application.o: ..\..\RT-Thread_1.1.1\include\rtdef.h
+..\obj\application.o: ..\apps\rtconfig.h
+..\obj\application.o: D:\KEIL\ARM\ARMCC\bin\..\include\stdarg.h
+..\obj\application.o: ..\..\RT-Thread_1.1.1\include\rtdebug.h
+..\obj\application.o: ..\..\RT-Thread_1.1.1\include\rtservice.h
+..\obj\application.o: ..\..\RT-Thread_1.1.1\include\rtm.h
+..\obj\application.o: ..\..\RT-Thread_1.1.1\include\rtthread.h
+..\obj\application.o: ..\divers\led.h

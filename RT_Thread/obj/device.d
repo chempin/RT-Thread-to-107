@@ -1,0 +1,9 @@
+..\obj\device.o: ..\..\RT-Thread_1.1.1\src\device.c
+..\obj\device.o: ..\..\RT-Thread_1.1.1\include\rtthread.h
+..\obj\device.o: ..\..\RT-Thread_1.1.1\include\rtdef.h
+..\obj\device.o: ..\apps\rtconfig.h
+..\obj\device.o: D:\KEIL\ARM\ARMCC\bin\..\include\stdarg.h
+..\obj\device.o: ..\..\RT-Thread_1.1.1\include\rtdebug.h
+..\obj\device.o: ..\..\RT-Thread_1.1.1\include\rtservice.h
+..\obj\device.o: ..\..\RT-Thread_1.1.1\include\rtm.h
+..\obj\device.o: ..\..\RT-Thread_1.1.1\include\rtthread.h

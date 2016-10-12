@@ -1,0 +1,14 @@
+..\obj\mem.o: ..\..\RT-Thread_1.1.1\src\mem.c
+..\obj\mem.o: ..\..\RT-Thread_1.1.1\include\rthw.h
+..\obj\mem.o: ..\..\RT-Thread_1.1.1\include\rtthread.h
+..\obj\mem.o: ..\..\RT-Thread_1.1.1\include\rtdef.h
+..\obj\mem.o: ..\apps\rtconfig.h
+..\obj\mem.o: D:\KEIL\ARM\ARMCC\bin\..\include\stdarg.h
+..\obj\mem.o: ..\..\RT-Thread_1.1.1\include\rtdebug.h
+..\obj\mem.o: ..\..\RT-Thread_1.1.1\include\rtservice.h
+..\obj\mem.o: ..\..\RT-Thread_1.1.1\include\rtm.h
+..\obj\mem.o: ..\..\RT-Thread_1.1.1\include\rtthread.h
+..\obj\mem.o: ..\..\RT-Thread_1.1.1\components\finsh\finsh.h
+..\obj\mem.o: D:\KEIL\ARM\ARMCC\bin\..\include\ctype.h
+..\obj\mem.o: D:\KEIL\ARM\ARMCC\bin\..\include\stdlib.h
+..\obj\mem.o: D:\KEIL\ARM\ARMCC\bin\..\include\string.h

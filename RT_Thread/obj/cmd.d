@@ -1,0 +1,13 @@
+..\obj\cmd.o: ..\..\RT-Thread_1.1.1\components\finsh\cmd.c
+..\obj\cmd.o: ..\..\RT-Thread_1.1.1\include\rtthread.h
+..\obj\cmd.o: ..\..\RT-Thread_1.1.1\include\rtdef.h
+..\obj\cmd.o: ..\apps\rtconfig.h
+..\obj\cmd.o: D:\KEIL\ARM\ARMCC\bin\..\include\stdarg.h
+..\obj\cmd.o: ..\..\RT-Thread_1.1.1\include\rtdebug.h
+..\obj\cmd.o: ..\..\RT-Thread_1.1.1\include\rtservice.h
+..\obj\cmd.o: ..\..\RT-Thread_1.1.1\include\rtm.h
+..\obj\cmd.o: ..\..\RT-Thread_1.1.1\include\rtthread.h
+..\obj\cmd.o: ..\..\RT-Thread_1.1.1\components\finsh\finsh.h
+..\obj\cmd.o: D:\KEIL\ARM\ARMCC\bin\..\include\ctype.h
+..\obj\cmd.o: D:\KEIL\ARM\ARMCC\bin\..\include\stdlib.h
+..\obj\cmd.o: D:\KEIL\ARM\ARMCC\bin\..\include\string.h

@@ -1,0 +1,10 @@
+..\obj\idle.o: ..\..\RT-Thread_1.1.1\src\idle.c
+..\obj\idle.o: ..\..\RT-Thread_1.1.1\include\rthw.h
+..\obj\idle.o: ..\..\RT-Thread_1.1.1\include\rtthread.h
+..\obj\idle.o: ..\..\RT-Thread_1.1.1\include\rtdef.h
+..\obj\idle.o: ..\apps\rtconfig.h
+..\obj\idle.o: D:\KEIL\ARM\ARMCC\bin\..\include\stdarg.h
+..\obj\idle.o: ..\..\RT-Thread_1.1.1\include\rtdebug.h
+..\obj\idle.o: ..\..\RT-Thread_1.1.1\include\rtservice.h
+..\obj\idle.o: ..\..\RT-Thread_1.1.1\include\rtm.h
+..\obj\idle.o: ..\..\RT-Thread_1.1.1\include\rtthread.h
