@@ -45,6 +45,7 @@
 
 #include "led.h"
 
+
 ALIGN(RT_ALIGN_SIZE)
 static rt_uint8_t led_stack[ 512 ];
 static struct rt_thread led_thread;
@@ -57,22 +58,71 @@ static void led_thread_entry(void* parameter)
     while (1)
     {
         /* led1 on */
-#ifndef RT_USING_FINSH
-        rt_kprintf("led on, count : %d\r\n",count);
-#endif
+        rt_kprintf("led0 on, count : %d\r\n",count);
         count++;
         rt_hw_led_on(0);
         rt_thread_delay( RT_TICK_PER_SECOND/2 ); /* sleep 0.5 second and switch to other thread */
 
         /* led1 off */
-#ifndef RT_USING_FINSH
-        rt_kprintf("led off\r\n");
-#endif
+        rt_kprintf("led0 off\r\n");
         rt_hw_led_off(0);
         rt_thread_delay( RT_TICK_PER_SECOND/2 );
     }
 }
 
+static rt_uint8_t led1_stack[ 512 ];
+static struct rt_thread led1_thread;
+static void led1_thread_entry(void* parameter)
+{
+    unsigned int count=0;
+
+    rt_hw_led_init();
+
+    while (1)
+    {
+        /* led1 on */
+
+        rt_kprintf("led1 on, count : %d\r\n",count);
+        count++;
+			  rt_hw_led_on(1);
+        rt_thread_delay( RT_TICK_PER_SECOND/2 ); /* sleep 0.5 second and switch to other thread */
+
+        /* led1 off */
+        rt_kprintf("led1 off\r\n");
+			  rt_hw_led_off(1);
+        rt_thread_delay( RT_TICK_PER_SECOND/2 );
+    }
+}
+
+
+/***********************************************************************************************************************/
+//rt_thread_t tid1 = RT_NULL;  
+//rt_thread_t tid2 = RT_NULL;  
+
+//static void thread1_entry(void* parameter)  
+//{  
+//   rt_uint32_t count = 0;  
+//    rt_kprintf("thread1 dynamicly created ok\n");  
+//    while(1)  
+//    {  
+//        rt_kprintf("thread1 count: %d\n",count++);  
+//        rt_thread_delay(RT_TICK_PER_SECOND);  
+//    }  
+//}  
+
+
+//static void thread2_entry(void* parameter)  
+//{  
+//    rt_kprintf("thread2 dynamicly created ok\n");  
+//  
+//    rt_thread_delay(RT_TICK_PER_SECOND * 4);  
+//      
+//    rt_thread_delete(tid1);  
+//    rt_kprintf("thread1 deleted ok\n");  
+//}  
+
+
+/*****************************************************************************************************************************/
 
 void rt_init_thread_entry(void* parameter)
 {
@@ -156,6 +206,27 @@ void rt_init_thread_entry(void* parameter)
 
 int rt_application_init()
 {
+		
+	/******************************************************************************************************************/
+//	/*创建动态线程*/
+//	tid1 = rt_thread_create("thread1",  
+//        thread1_entry,   
+//        RT_NULL,  
+//        512, 6, 10);  
+//    if (tid1 != RT_NULL)  
+//        rt_thread_startup(tid1);  
+//  
+//    tid2 = rt_thread_create("thread2",  
+//        thread2_entry, RT_NULL,  
+//        512, 6, 10);  
+//    if (tid2 != RT_NULL)  
+//        rt_thread_startup(tid2);  
+//  
+//    return 0;  
+//}
+	/******************************************************************************************************************/
+	
+	
 	rt_thread_t init_thread;
 
 	rt_err_t result;
@@ -169,6 +240,21 @@ int rt_application_init()
 	{
         rt_thread_startup(&led_thread);
 	}
+	
+
+	
+		result = rt_thread_init(&led1_thread,
+		"led1",
+		led1_thread_entry, RT_NULL,
+		(rt_uint8_t*)&led1_stack[0], sizeof(led1_stack), 20, 8);
+	if (result == RT_EOK)
+	{
+        rt_thread_startup(&led1_thread);
+	}
+	
+	
+	
+	
 
 #if (RT_THREAD_PRIORITY_MAX == 32)
 	init_thread = rt_thread_create("init",
@@ -188,36 +274,7 @@ int rt_application_init()
 
 /*@}*/
 
-/**************************************************************************/
-static rt_uint8_t led1_stack[ 512 ];
-static struct rt_thread led1_thread;
-void demo_thread_creat(void)
-{
-	
-	rt_err_t result;
-	
-	rt_thread_t led2_thread;
-	
-		rt_hw_led_init();
-
-    /* init led thread */
-	result = rt_thread_init(&led1_thread,
-		"led1",
-				led_thread_entry, RT_NULL,
-		(rt_uint8_t*)&led1_stack[0], sizeof(led1_stack), 20, 2);
-	if (result == RT_EOK)
-	{
-        rt_thread_startup(&led1_thread);
-	}
 
 
-	led2_thread = rt_thread_create("led2",
-								rt_init_thread_entry, RT_NULL,
-								512,21, 2);
 
-	if (led2_thread != RT_NULL)
-		rt_thread_startup(led2_thread);
 
-}
-
-/**********************************************************************************/
